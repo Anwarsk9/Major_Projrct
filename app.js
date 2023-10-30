@@ -30,7 +30,7 @@ async function main() {
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
-    secret:process.env.SECRET,
+    secret: process.env.SECRET,
   },
   touchAfter: 24 * 3600,
 });
@@ -88,9 +88,13 @@ app.get("/register", async (req, res) => {
   res.send(user);
 });
 
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
-app.use("/", userRouter);
+app.use("/user", userRouter);
 
 app.all("*", (req, res) => {
   res.render("./listings/error.ejs", { message: "Page Not Found!" });
