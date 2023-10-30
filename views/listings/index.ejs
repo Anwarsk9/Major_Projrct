@@ -1,0 +1,128 @@
+<% layout("layout/boilerplate") %>
+
+<body>
+  <div class="container-fluid form-box">
+    <!-- <h1>Welcome to <span> WonderLust</span></h1> -->
+    <form action="/listings">
+      <div class="inp" style="display: none">
+        <input type="text" name="filters" id="" />
+      </div>
+
+      <div id="filters">
+        <a href="/listings" class="filter home-a">
+          <div class="icon">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <p>Home</p>
+        </a>
+
+        <div class="filter">
+          <button onclick="filters.value = 'trending'">
+            <div class="icon">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <p>Trending</p>
+          </button>
+        </div>
+        <div class="filter">
+          <button onclick="filters.value = 'rooms' ">
+            <div class="icon">
+              <i class="fa-solid fa-bed"></i>
+            </div>
+            <p>Rooms</p>
+          </button>
+        </div>
+        <div class="filter">
+          <button onclick="filters.value = 'iconic cities' ">
+            <div class="icon">
+              <i class="fa-solid fa-mountain-city"></i>
+            </div>
+            <p>Iconic Cities</p>
+          </button>
+        </div>
+        <div class="filter">
+          <button onclick="filters.value = 'mountains' ">
+            <div class="icon">
+              <i class="fa-solid fa-mountain-sun"></i>
+            </div>
+            <p>Mountains</p>
+          </button>
+        </div>
+
+        <div class="filter">
+          <button onclick="filters.value = 'amazing pools' ">
+            <div class="icon">
+              <i class="fa-solid fa-person-swimming"></i>
+            </div>
+            <p>Amazing Pools</p>
+          </button>
+        </div>
+        <div class="filter">
+          <button onclick="filters.value = 'camping' ">
+            <div class="icon">
+              <i class="fa-solid fa-campground"></i>
+            </div>
+            <p>Camping</p>
+          </button>
+        </div>
+        <div class="filter">
+          <button onclick="filters.value = 'farms' ">
+            <div class="icon">
+              <i class="fa-solid fa-cow"></i>
+            </div>
+            <p>Farms</p>
+          </button>
+        </div>
+        <div class="filter">
+          <button onclick="filters.value = 'arctic' ">
+            <div class="icon">
+              <i class="fa-regular fa-snowflake"></i>
+            </div>
+            <p>Arctic</p>
+          </button>
+        </div>
+        <div class="filter">
+          <button onclick="filters.value = 'castle' ">
+            <div class="icon">
+              <i class="fa-brands fa-fort-awesome"></i>
+            </div>
+            <p>Castles</p>
+          </button>
+        </div>
+
+        <div class="tax-toggle">
+          <div class="form-check form-switch ms-auto tax-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+            />
+            <label class="form-check-label" for="flexSwitchCheckChecked"
+              >Display total after taxes</label
+            >
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row h-row">
+      <% for(let i of data){ %>
+      <div class="card">
+        <a href="/listings/<%=i._id%>" class="card-a">
+          <img src="<%=i.image.url%>" class="card-img-top" alt="Hotel image" />
+          <div class="card-body">
+            <h5 class="card-title"><%=i.title%></h5>
+            <%if(i.price){%>
+            <p class="card-text">
+              &#8377;<%=i.price.toLocaleString("en-IN");%>/night
+              <i class="gst-tax" id="show-gst"> +18% GST</i>
+            </p>
+            <%}%>
+          </div>
+        </a>
+      </div>
+      <% }%>
+    </div>
+  </div>
+</body>

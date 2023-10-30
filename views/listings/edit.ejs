@@ -1,0 +1,96 @@
+<% layout("layout/boilerplate")%>
+<body>
+  <div class="mt-3 form-box" style="overflow: hidden">
+    <form
+      method="post"
+      action="/listings/<%=data._id%>?_method=PUT"
+      class="needs-validation"
+      novalidate
+      enctype="multipart/form-data"
+    >
+      <div class="row offset-2">
+        <div class="col-md-9 col-10">
+          <h1>Edit Details</h1>
+          <label for="title" class="form-label">Title</label>
+          <input
+            name="listing[title]"
+            type="text"
+            placeholder="Give your space a catchy title"
+            class="form-control"
+            id="title"
+            value="<%=data.title%>"
+            required
+          />
+
+          <label for="textarea" class="form-label">Description</label>
+          <textarea
+            name="listing[description]"
+            class="form-control"
+            placeholder="Share some details about your place"
+            id="textarea"
+            required
+          ><%=data.description%></textarea
+          >
+
+          <div class="col-6 mt-2">
+            Old image <b>:</b><br />
+            <img src="<%=originalImageUrl%>" height="120px" />
+          </div>
+          <label for="img" class="form-label">Upload New Image</label>
+          <input
+            name="listing[image]"
+            type="file"
+            class="form-control"
+            placeholder="Past your link here"
+            id="img"
+          />
+
+          <div class="row">
+            <div class="col-md-4">
+              <label class="form-label" for="price">Price</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">&#8377;</span>
+                <input
+                  type="text"
+                  name="listing[price]"
+                  class="form-control"
+                  id="price"
+                  value="<%=data.price%>"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <label for="country" class="form-label">Country</label>
+              <input
+                name="listing[country]"
+                type="text"
+                class="form-control"
+                placeholder="Enter Country"
+                id="country"
+                value="<%=data.country%>"
+                required
+              />
+            </div>
+          </div>
+
+          <label for="location" class="form-label">Location</label>
+          <input
+            name="listing[location]"
+            type="text"
+            class="form-control"
+            placeholder="Enter location"
+            id="location"
+            value="<%=data.location%>"
+            required
+          />
+
+          <div class="mt-4">
+            <button class="btn btn-dark" style="width: 100px">Edit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>

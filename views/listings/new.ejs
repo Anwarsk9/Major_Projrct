@@ -1,0 +1,97 @@
+<% layout("layout/boilerplate")%>
+<body>
+  <div class="new-container form-box offset-2">
+    <form
+      method="post"
+      action="/listings"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="row p-2">
+        <div class="col-md-9 col-10">
+          <h1>Add your place</h1>
+          <label for="title" class="form-label">Title</label>
+          <input
+            name="listing[title]"
+            type="text"
+            placeholder="Give your space a catchy title"
+            class="form-control"
+            id="title"
+            required
+          />
+
+          <label for="textarea" class="form-label">Description</label>
+          <textarea
+            name="listing[description]"
+            class="form-control"
+            placeholder="Share some details about your place"
+            id="textarea"
+            required
+          ></textarea>
+
+          <label for="img" class="form-label">Upload Listing Image</label>
+          <input
+            name="listing[image]"
+            type="file"
+            class="form-control"
+            id="img"
+            required
+          />
+          <div class="row">
+            <div class="col-md-4">
+              <label class="form-label" for="price">Price</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">&#8377;</span>
+                <input
+                  type="text"
+                  name="listing[price]"
+                  class="form-control"
+                  placeholder="Enter Amount"
+                  id="price"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <label for="country" class="form-label">Country</label>
+              <input
+                name="listing[country]"
+                type="text"
+                class="form-control"
+                placeholder="india"
+                id="country"
+                required
+              />
+            </div>
+          </div>
+
+          <label for="location" class="form-label mt-3">Location</label>
+          <input
+            name="listing[location]"
+            type="text"
+            class="form-control"
+            id="location"
+            placeholder="Nellore, Andhra Pradesh"
+            required
+          />
+
+          <select class="form-select mt-4" name="listing[category]" id="category">
+            <option selected>Select Category</option>
+            <option value="rooms">Rooms</option>
+            <option value="castle">Castle</option>
+            <option value="iconic cities">Near to iconic cities</option>
+            <option value="farm">Farm</option>
+            <option value="camping">Camping</option>
+            <option value="mountain">Mountain View</option>
+            <option value="amazing pools">Home have Pool</option>
+            <option value="arctic">Arctic</option>
+          </select>
+
+          <button class="btn btn-dark mt-4" style="width: 100px">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>

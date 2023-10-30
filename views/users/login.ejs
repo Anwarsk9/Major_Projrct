@@ -1,0 +1,15 @@
+<%layout("layout/boilerplate.ejs")%>
+<body style="overflow: hidden;">
+  <div class="row form-box offset-3">
+    <form action="/login" method="post">
+      <div class="col-8 mt-3">
+        <h1>login</h1>
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="username" />
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="password" />
+        <button class="btn btn-sm btn-dark mt-5">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
