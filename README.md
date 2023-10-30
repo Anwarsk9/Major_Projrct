@@ -11,7 +11,7 @@ Welcome to my Airbnb-Clone project! This full-stack application. It allows users
 - User Reviews
 - User Ratings
 - Interactive Maps
-- 
+- and more...
 
 ## Tech Stack
 
