@@ -17,6 +17,7 @@
       <%}%>
       <p><%=data.location%></p>
       <h6><%=data.country%></h6>
+
       <%if(currUser && data.owner._id.equals(currUser._id)){%>
       <div class="d-flex justify-content-between mt-4 mb-4">
         <a
@@ -115,12 +116,14 @@
             <p class="card-text"><%=i.comment%></p>
             <p class="starability-result" data-rating="<%=i.rating%>"></p>
           </div>
+          <%if(currUser && data.owner._id.equals(currUser._id)){%>
           <form
             method="post"
             action="/listings/<%=data._id%>/reviews/<%=i._id%>?_method=DELETE"
           >
             <button class="btn btn-sm btn-dark review-btn">Delete</button>
           </form>
+          <%}%>
         </div>
         <%}%>
       </div>
