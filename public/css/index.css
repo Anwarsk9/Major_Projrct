@@ -263,6 +263,9 @@ footer {
 .show-card-date{
   font-size: 0.8rem;
 }
+.starability-result{
+  margin-top: 12px;
+}
 
 /* new.ejs */
 .new-container {
