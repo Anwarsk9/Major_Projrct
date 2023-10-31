@@ -226,6 +226,7 @@ footer {
 }
 .social-media-links i:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 .footer-line {
   margin-top: 3rem;
