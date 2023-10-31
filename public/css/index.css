@@ -262,7 +262,7 @@ footer {
 .alert {
   width: 80%;
   max-height: 80px;
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
 
 /* show.ejs */
