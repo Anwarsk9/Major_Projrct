@@ -112,7 +112,13 @@
         <%for(i of data.reviews){%>
         <div class="card review-box">
           <div class="card-body">
-            <h5 class="card-title">@<%=i.author.username%></h5>
+            <div class="show-card-user">
+              <i class="fa-solid fa-circle-user user-icon"></i>
+              <div class="user-details">
+                <h5 class="card-title show-card-title">@<%=i.author.username%></h5>
+                <p class="show-card-date"><%= i.createdAt.toString().slice(0,15) %></p>
+              </div>
+            </div>
             <p class="card-text"><%=i.comment%></p>
             <p class="starability-result" data-rating="<%=i.rating%>"></p>
           </div>

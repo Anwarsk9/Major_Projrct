@@ -22,6 +22,8 @@ const userRouter = require("./routes/user.js");
 const dbUrl = process.env.ATLESDB_URL;
 main().then(() => {
   console.log("DataBase is connected");
+}).catch((err)=>{
+  console.log(err);
 });
 async function main() {
   await mongoose.connect(dbUrl);

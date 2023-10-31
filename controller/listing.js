@@ -1,6 +1,5 @@
 const Listing = require("../models/listing");
 
-
 module.exports.index = async (req, res) => {
   let { filters, country } = req.query;
   if (filters) {
@@ -30,16 +29,17 @@ module.exports.renderNewForm = (req, res) => {
 
 module.exports.createListing = async (req, res) => {
   const apiKey = process.env.MAP_TOKEN;
-  let api = await fetch(`https://api.maptiler.com/geocoding/${req.body.listing.location}.json?key=${apiKey}`);
-  let response =  await api.json();
- console.log(response.features[0].geometry.coordinates);
+  let api = await fetch(
+    `https://api.maptiler.com/geocoding/${req.body.listing.location}.json?key=${apiKey}`
+  );
+  let response = await api.json();
 
   const { path: url, filename } = req.file;
   const newListing = new Listing(req.body.listing);
   newListing.owner = req.user._id;
   newListing.image = { url, filename };
   newListing.geometry = response.features[0].geometry;
-  const savedListing =  await newListing.save();
+  const savedListing = await newListing.save();
   console.log(savedListing);
   req.flash("success", "new listing created!");
   res.redirect("/listings");
@@ -78,6 +78,19 @@ module.exports.renderEditForm = async (req, res) => {
 
 module.exports.updateListing = async (req, res) => {
   let { id } = req.params;
+  let { location } = req.body.listing;
+  let coordinatListing = await Listing.findById(id);
+
+  if (coordinatListing.location !== location) {
+    console.log("coordinates updated");
+    const apiKey = process.env.MAP_TOKEN;
+    let api = await fetch(
+      `https://api.maptiler.com/geocoding/${location}.json?key=${apiKey}`
+    );
+    let response = await api.json();
+    coordinatListing.geometry = response.features[0].geometry;
+    coordinatListing.save();
+  }
   let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
   if (req.file) {
     const { path: url, filename } = req.file;

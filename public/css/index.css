@@ -15,6 +15,9 @@ body {
   flex: 1;
 }
 
+#index{
+  margin-top: 70px;
+}
 .form-label {
   margin-top: 1.5rem;
 }
@@ -62,13 +65,24 @@ body {
   color: #000;
 }
 
-/* options Styling */
+/* Nav Filters*/
+.nav-filters{
+  position: fixed;
+  width: 100%;
+  top: 31px;
+  z-index: 1;
+  padding-top: 1rem;
+  background-color: #fff;
+}
+.nav-filters .container-fluid form{
+  width: 100%;
+}
 #filters {
   display: flex;
   flex-wrap: wrap;
   height: 44px;
   overflow: hidden;
-  margin: 1rem 0 0 0.4rem;
+  margin: 2rem 0 0 0.4rem;
 }
 .filter {
   margin-right: 2rem;
@@ -89,6 +103,9 @@ body {
   margin-right: 1rem;
   border-radius: 1rem;
   height: 30px;
+}
+.tax-switch input,label:hover{
+  cursor: pointer;
 }
 .gst-tax {
   display: none;
@@ -146,7 +163,7 @@ nav .container-fluid {
   padding: 0 0.6rem;
   font-size: 0.8rem;
 }
-@media (max-width: 767px) {
+@media (max-width: 767.5px) {
   .nav-link {
     color: #c5c5c5;
     background-color: #515151;
@@ -230,6 +247,21 @@ footer {
 }
 .review-btn {
   margin: 0 0 15px 13px;
+}
+
+.show-card-user{
+  display: flex;
+  align-items: center;
+}
+.user-icon{
+  font-size: 1.8rem;
+  margin:0 0.7rem 1.5rem 0;
+}
+.show-card-title{
+  margin-bottom: 0.2rem;
+}
+.show-card-date{
+  font-size: 0.8rem;
 }
 
 /* new.ejs */
