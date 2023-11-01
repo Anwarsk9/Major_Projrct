@@ -109,23 +109,23 @@
       <%if(data.reviews.length > 0){%>
       <h4>All Reviews</h4>
       <div class="reviews">
-        <%for(i of data.reviews){%>
+        <%for(let review of data.reviews){%>
         <div class="card review-box">
           <div class="card-body">
             <div class="show-card-user">
               <i class="fa-solid fa-circle-user user-icon"></i>
               <div class="user-details">
-                <h5 class="card-title show-card-title">@<%=i.author.username%></h5>
-                <p class="show-card-date"><%= i.createdAt.toString().slice(0,15) %></p>
+                <h5 class="card-title show-card-title">@<%=review.author.username%></h5>
+                <p class="show-card-date"><%= review.createdAt.toString().slice(0,15) %></p>
               </div>
             </div>
-            <p class="card-text"><%=i.comment%></p>
-            <p class="starability-result" data-rating="<%=i.rating%>"></p>
+            <p class="card-text"><%=review.comment%></p>
+            <p class="starability-result" data-rating="<%=review.rating%>"></p>
           </div>
-          <%if(currUser && data.reviews[0].author._id.equals(currUser._id)){%>
+          <%if(currUser && review.author._id.equals(currUser._id)){%>
           <form
             method="post"
-            action="/listings/<%=data._id%>/reviews/<%=i._id%>?_method=DELETE"
+            action="/listings/<%=data._id%>/reviews/<%=review._id%>?_method=DELETE"
           >
             <button class="btn btn-sm btn-dark review-btn">Delete</button>
           </form>
