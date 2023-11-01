@@ -18,6 +18,7 @@ const User = require("./models/user.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const favicon = require("express-favicon");
 
 const dbUrl = process.env.ATLESDB_URL;
 main().then(() => {
@@ -60,6 +61,7 @@ app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(favicon(__dirname + "/public/favicon.ico"));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(session(sessionOptions));
