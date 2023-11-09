@@ -22,6 +22,13 @@
   });
 })();
 
+if (filter) {
+  let clickedIcon = document.getElementById(filter);
+  let clickedIconPara = document.querySelector(`#${filter} p`);
+  clickedIcon.style.opacity = "1";
+  clickedIconPara.style.borderBottom = "3px solid black";
+}
+
 let taxSwitch = document.querySelector(".form-check-input");
 if (taxSwitch) {
   taxSwitch.addEventListener("click", () => {

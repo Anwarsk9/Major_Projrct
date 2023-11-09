@@ -2,9 +2,10 @@ const Listing = require("../models/listing");
 
 module.exports.index = async (req, res) => {
   let { filters, country } = req.query;
-  if (filters) {
+  res.locals.filter = filters;
+  if (filters && filters != "home") {
     const data = await Listing.find({ category: filters });
-    return res.render("./listings/index.ejs", { data });
+    return res.render("./listings/index.ejs", { data, filters });
   }
   if (country) {
     const data = await Listing.find({
