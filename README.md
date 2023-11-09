@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to my Airbnb-Clone project! This full-stack application. It allows users to search for accommodations, view property details, book stays, and much more. The project was built using Node.js and several other technologies.
+Welcome to my WonderLust project! This full-stack application. It allows users to search for accommodations, view property details, book stays, and much more. The project was built using Node.js and several other technologies.
 
 ## Features
 
