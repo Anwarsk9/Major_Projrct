@@ -28,4 +28,4 @@ This project was developed using a variety of technologies and frameworks, inclu
 
 ## Screenshort
 
-(public/homelyhub-Screenshort.png)
+ ![homelyhub-Screenshort](public/homelyhub-Screenshort.png)
