@@ -17,8 +17,11 @@ Welcome to my WonderLust project! This full-stack application. It allows users t
 
 This project was developed using a variety of technologies and frameworks, including:
 
+- JavaScript
+- HTML
+- CSS
 - Node.js
 - Express.js
 - MongoDB
-- Maptiler
+- ejs
 - and more...
