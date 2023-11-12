@@ -25,3 +25,7 @@ This project was developed using a variety of technologies and frameworks, inclu
 - MongoDB
 - ejs
 - and more...
+
+## Screenshort
+
+(public/homelyhub-Screenshort.png)
