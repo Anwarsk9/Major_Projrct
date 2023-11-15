@@ -1,4 +1,4 @@
-# HomelyHubProject
+# HomelyHub Project
 
 ## Overview
 
